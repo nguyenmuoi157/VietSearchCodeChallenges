@@ -1,0 +1,4 @@
+elasticsearch
+scrapy
+numpy
+flask
