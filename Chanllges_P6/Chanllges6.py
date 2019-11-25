@@ -73,7 +73,7 @@ def delete_one(ids):
 def delete_many():
     req = json.loads(request.data)
     if len(req) <= 0:
-        for ids in req:
+        for ids in req["ids"]:
             query = {
                 "query": {
                     "match": {
@@ -110,12 +110,12 @@ def get_by_id_one(ids):
 def get_by_id_many():
     req = json.loads(request.data)
     result = []
-    if len(req) <= 0:
+    if len(req["ids"]) <= 0:
         return {
             "err": True,
             "message": "ids is null"
         }
-    for ids in req:
+    for ids in req["ids"]:
         query = {
             "query": {
                 "match": {
